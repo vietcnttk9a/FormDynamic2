@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     this.dataService.getListData().subscribe(result => {
       // this.rfDataModal.setValue(result);
       this.rfDataModal.patchValue(result);
-      this.dicVus.setValue(result.listDichVu);
+      // this.dicVus.setValue(result.listDichVu);
     });
   }
 
