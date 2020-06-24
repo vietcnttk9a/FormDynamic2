@@ -24,7 +24,21 @@ export class AppComponent implements OnInit {
     this.dataService.getListData().subscribe(result => {
       // this.rfDataModal.setValue(result);
       this.rfDataModal.patchValue(result);
+      this.initFormArray(result.listDichVu);
       // this.dicVus.setValue(result.listDichVu);
+    });
+  }
+
+   initFormArray(data:any[]) {
+    const controls = this.dicVus;
+    data.forEach(item => {
+      controls.push(
+        this.fb.group({
+          tenDichVu: item.tenDichVu,
+          donGia: item.donGia,
+          soLuong: item.soLuong
+        })
+      )
     });
   }
 
